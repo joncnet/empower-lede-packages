@@ -8,9 +8,9 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=empower-lvap-agent
-PKG_VERSION:=20180819
+PKG_VERSION:=20180814
 PKG_RELEASE:=1
-PKG_REV:=55c2e45f4565f0649f92d3a6725b93ac5f3cba50
+PKG_REV:=5e9fff63358decad11762fe9a8965c3a4ed6b517
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=https://github.com/5g-empower/empower-lvap-agent.git
@@ -58,8 +58,8 @@ endef
 
 define Build/Compile
 	(cd $(PKG_BUILD_DIR)/userlevel; \
-		$(STAGING_DIR)/host/bin/click-mkmindriver -p $(PKG_NAME) \
-		-C $(STAGING_DIR)/host/ \
+		$(STAGING_DIR)/../hostpkg/bin/click-mkmindriver -p $(PKG_NAME) \
+		-C $(STAGING_DIR)/../hostpkg/ \
 		-f $(PKG_BUILD_DIR)/elements/empower/samples/empower.click \
 		-A --all -E Discard -E Print -E PrintWifi -E Strip -E Null \
 		-e SetTXRate -e SetTXRateHT -E ToDump -E RatedSource \
